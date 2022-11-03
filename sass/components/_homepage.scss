@@ -1,0 +1,258 @@
+// The sections below have to do with the headings
+
+.heading-primary {
+  color: var(--primary-color);
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 5.6rem;
+}
+
+.heading-secondary {
+  color: var(--quaternary-color);
+  font-size: 4rem;
+  line-height: 4rem;
+  font-weight: 700;
+  margin-bottom: 3.4rem;
+}
+
+.heading-tertiary {
+  color: var(--article-text-color);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 3.2rem;
+  margin-bottom: 1.2rem;
+}
+
+// The sections below have to do with the Menu Nav
+
+.homepage {
+  max-width: 111rem;
+  width: 100%;
+  margin: 1.6rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  gap: 4rem;
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: var(--secondary-color);
+    }
+    &:hover,
+    &:active {
+      cursor: pointer;
+      color: var(--tertiary-color);
+    }
+  }
+}
+
+.mobile-menu {
+  &__open,
+  &__close {
+    display: none;
+  }
+
+  &__close {
+    z-index: 10;
+  }
+}
+
+// The sections below have to do with the main body of the page
+
+.main-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  max-width: 111rem;
+  column-gap: 3rem;
+  row-gap: 2.8rem;
+  margin-bottom: 7.1rem;
+
+  &__img {
+    display: block;
+    grid-column: 1 / span 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-weight: 400;
+  }
+
+  &__btn {
+    margin-top: 2.9rem;
+    max-width: 18.5rem;
+    width: 100%;
+    max-height: 4.8rem;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--almost-white-color);
+    background-color: var(--tertiary-color);
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--primary-color);
+    }
+  }
+
+  &__articles {
+    &-wrapper {
+      padding: 3.2rem 2.4rem;
+    }
+
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 2;
+    background-color: var(--primary-color);
+
+    &__heading {
+      color: var(--almost-white-color);
+      font-size: 2rem;
+      line-height: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+
+      &:hover {
+        cursor: pointer;
+        color: var(--quaternary-color);
+      }
+
+      &:not(:first-child) {
+        margin-top: 3.1rem;
+      }
+    }
+
+    &__text {
+      color: var(--article-text-color);
+      font-size: 1.5rem;
+      line-height: 2.6rem;
+      font-weight: 400;
+
+      &:not(:last-child) {
+        padding-bottom: 2.9rem;
+        border-bottom: solid 1px var(--secondary-color);
+      }
+    }
+  }
+}
+
+// The sections below have to do with the additional articles
+
+.additional-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  column-gap: 3rem;
+  row-gap: 3rem;
+  grid-auto-columns: min-content;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    column-gap: 2.4rem;
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.9rem;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--tertiary-color);
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+  }
+}
+
+// The sections below are helper code to make pieces appear and dissapear
+
+.invisible {
+  display: none;
+}
+
+.darken {
+  top: -1.6rem;
+  left: -1.6rem;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  opacity: 0.5;
+}
+
+// The sections below have to do with the media queries
+
+@media (max-width: 45.3125em) {
+  .nav {
+    position: relative;
+  }
+
+  .menu {
+    z-index: 5;
+    display: none;
+    top: -1.6rem;
+    right: 0;
+    position: absolute;
+    flex-direction: column;
+    gap: 2.4rem;
+    background-color: #fff;
+    width: 65vw;
+    height: 100vh;
+    padding-left: 2.4rem;
+    padding-top: 14.4rem;
+  }
+
+  .mobile-menu__open {
+    display: block;
+  }
+
+  .main-info {
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+    // grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
+
+    &__img {
+      grid-column: auto;
+    }
+
+    &__articles {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    &__text {
+      margin-bottom: 6.4rem;
+    }
+  }
+}
